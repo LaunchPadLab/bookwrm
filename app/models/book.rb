@@ -3,5 +3,5 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: { scope: :author }
+  validates :title, presence: true, uniqueness: { scope: :author_id }
 end
