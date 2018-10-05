@@ -11,6 +11,46 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %><br />
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isbn %><br />
+    <%= form.text_field :isbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %><br />
+    <%= form.text_field :genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publish_date %><br />
+    <%= form.date_field :publish_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_pages %><br />
+    <%= form.number_field :num_pages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %><br />
+    <%= form.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_id %><br />
+    <%= form.select :author_id, options: Author.all.map { |author| ["#{author.first_name} #{author.last_name}", author.id] } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
