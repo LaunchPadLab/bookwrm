@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def initials
-    "#{first_name[0]}#{last_name[0]}"
+    "#{first_name.first}#{last_name.first}"
   end
 
   def full_name
