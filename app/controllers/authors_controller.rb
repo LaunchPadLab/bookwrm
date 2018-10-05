@@ -70,6 +70,6 @@ class AuthorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.fetch(:author, {})
+      params.require(:author).permit(:author_id, :title, :description, :isbn, :genre, :publish_date, :num_pages, :image_url)
     end
 end
