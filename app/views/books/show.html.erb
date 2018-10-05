@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="favorites">
+  <% if current_user.favorited_book?(@book) %>
+    <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
+  <% else %>
+    <button>
+      <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
+    </button>
+  <% end %>
+</div>
+
+
 <% if @book.image_url %>
   <%= image_tag  @book.image_url %>
 <% end %>
@@ -7,9 +18,28 @@
 <h2><%= @book.title %></h2>
 <p><%= @book.author.first_name %> <%= @book.author.last_name %></p>
 <p><%= @book.description %></p>
+<button><%= link_to "Write a review", new_book_review_path(@book) %></button>
 
-<% if current_user.present? %>
-  <%= link_to 'Edit', edit_book_path(@book) %> |
+<h1>Reviews (<%= @book.reviews.size %>)</h1>
+
+<% @book.reviews.each do |review| %>
+  <div class="user-initials">
+    <%= review.user.initials %>
+  </div>
+  <div class="user-name">
+    <%= review.user.full_name %>
+  </div>
+  <div class="rating-stars">
+    <%= review.rating %>
+  </div>
+  <div class="timestamp">
+    <%= format_date(review.created_at) %>
+  </div>
+  <div class="description">
+    <%= review.description %>
+  </div>
 <% end %>
 
-<%= link_to 'Back', books_path %>
+<% if current_user.present? %>
+  <%= link_to 'Edit', edit_book_path(@book) %>
+<% end %>
