@@ -4,7 +4,7 @@ FactoryBot.define do
     author
 
     trait :complete do
-      description Faker::Lorem.sentence(3, true, 4)
+      description { Faker::Lorem.sentence(3, true, 4) }
       isbn { Faker::Code.isbn }
       genre { Faker::Book.genre }
       publish_date { Faker::Date.birthday(18, 65) }
