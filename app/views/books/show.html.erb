@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% if @book.image_url %>
+  <%= image_tag  @book.image_url %>
+<% end %>
+
+<h2><%= @book.title %></h2>
+<p><%= @book.author.first_name %> <%= @book.author.last_name %></p>
+<p><%= @book.description %></p>
+
 <% if current_user.present? %>
   <%= link_to 'Edit', edit_book_path(@book) %> |
 <% end %>

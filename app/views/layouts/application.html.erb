@@ -10,7 +10,10 @@
   </head>
 
   <body>
+    <h1>BOOKWRM</h1>
+    <%= link_to 'Browse Books', books_path %>
     <% if current_user.present? %>
+      <%= link_to 'My Account', edit_user_registration_path(current_user) %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Sign In', new_user_session_path %>
