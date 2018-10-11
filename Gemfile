@@ -11,7 +11,7 @@ gem 'faker'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'puma', '~> 3.11'
-# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 gem 'rails', '~> 5.2.1'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
