@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    redirect_to books_path unless current_user == @user
   end
 
   # GET /users/new

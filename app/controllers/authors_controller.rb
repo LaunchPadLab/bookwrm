@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.alphabetical
   end
 
   # GET /authors/1

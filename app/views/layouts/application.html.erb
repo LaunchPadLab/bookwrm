@@ -11,6 +11,7 @@
 
   <body>
     <h1>BOOKWRM</h1>
+    <%= link_to 'View Authors', authors_path %>
     <%= link_to 'Browse Books', books_path %>
     <% if current_user.present? %>
       <%= link_to 'My Account', edit_user_registration_path(current_user) %>
