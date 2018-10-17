@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <div class="favorites">
-  <% if current_user.favorited_book?(@book) %>
-    <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
-  <% else %>
-    <button>
-      <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
-    </button>
+  <% if current_user.present? %>
+    <% if current_user.favorited_book?(@book) %>
+      <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
+    <% else %>
+      <button>
+        <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
+      </button>
+    <% end %>
   <% end %>
 </div>
 
+<% if current_user.present? %>
+  <%= link_to 'Edit', edit_book_path(@book) %>
+<% end %>
 
 <% if @book.image_url %>
-  <%= image_tag  @book.image_url %>
+  <%= image_tag @book.image_url %>
 <% end %>
 
 <h2><%= @book.title %></h2>
@@ -40,6 +45,3 @@
   </div>
 <% end %>
 
-<% if current_user.present? %>
-  <%= link_to 'Edit', edit_book_path(@book) %>
-<% end %>

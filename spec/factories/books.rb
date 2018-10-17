@@ -11,10 +11,10 @@ FactoryBot.define do
       num_pages { Faker::Number.number(3) }
     end
 
-    trait :with_favorites do
-    end
-
     trait :with_reviews do
+      after(:create) do |book|
+        2.times { |n| FactoryBot.create(:review, book: book, rating: (n + 1)) }
+      end
     end
   end
 end

@@ -135,7 +135,7 @@ module Seeds
               isbn: '0142000671',
               publish_date: Date.new(1937, 1, 1),
               num_pages: 112,
-              image_url: 'https://images.gr-assets.com/books/1327872146l/18135.jpg'
+              image_url: 'https://images.gr-assets.com/books/1511302904l/890.jpg'
             }]
           },
           {

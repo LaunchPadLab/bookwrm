@@ -19,10 +19,8 @@
           <td><%= image_tag  book.image_url %><td>
         <% end %>
         <td><%= link_to book.title, book_path(book) %></td>
-        <% if current_user.present? %>
-          <td><%= link_to 'Edit', edit_book_path(book) %></td>
-          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><%= book.average_rating %></td>
+        <td><%= book.num_ratings %></td>
       </tr>
     <% end %>
   </tbody>
