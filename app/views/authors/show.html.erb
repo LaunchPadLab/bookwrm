@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @author.full_name %></h1>
-<%= link_to 'Edit', edit_author_path(@author) %>
+
+<% if current_user.present? %>
+  <%= link_to 'Edit', edit_author_path(@author) %>
+<% end %>
 
 <table>
   <thead>

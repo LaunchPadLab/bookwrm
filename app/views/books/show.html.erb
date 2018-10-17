@@ -12,9 +12,12 @@
   <% end %>
 </div>
 
+<% if current_user.present? %>
+  <%= link_to 'Edit', edit_book_path(@book) %>
+<% end %>
 
 <% if @book.image_url %>
-  <%= image_tag  @book.image_url %>
+  <%= image_tag @book.image_url %>
 <% end %>
 
 <h2><%= @book.title %></h2>
@@ -42,6 +45,3 @@
   </div>
 <% end %>
 
-<% if current_user.present? %>
-  <%= link_to 'Edit', edit_book_path(@book) %>
-<% end %>
