@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<header class="page-header">
+  <div class="header-block-container">
+    <h1><%= @author.full_name %></h1>
+    <% if current_user.present? %>
+      <%= link_to 'Edit', edit_author_path(@author), class: 'button-white-outline' %>
+    <% end %>
+  </div>
+</header>
+
+<section class="book-block-container">
+  <div class="books">
+    <% @author.books.each do |book| %>
+      <div class="book">
+        <div class="book-cover">
+          <% if book.image_url %>
+            <%= image_tag  book.image_url %>
+          <% end %>
+        </div>
+        <div class="text-block">
+          <h5><%= link_to book.title, book_path(book) %></h5>
+          <p><%= image_tag("#{book.average_rating}-stars.svg") %> <%= book.average_rating %>/5 (<%= book.num_ratings %> Reviews)</p>
+        </div>
+      </td>
+    <% end %>
+  </div>
+</section>

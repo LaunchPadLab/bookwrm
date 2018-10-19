@@ -4,6 +4,7 @@
     <title>Bookwrm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.png' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,6 +16,7 @@
       <%= image_tag('logo.svg', class: 'logo') %>
       <nav>
         <%= link_to 'Browse Books', books_path %>
+        <%= link_to 'Authors', authors_path %>
         <% if current_user.present? %>
           <%= link_to 'My Account', edit_user_registration_path(current_user) %>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

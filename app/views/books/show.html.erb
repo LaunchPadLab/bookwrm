@@ -1,14 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<div class="favorites">
-  <% if current_user.try(:favorited_book?, @book) %>
-    <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
-  <% else %>
-    <button>
-      <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
-    </button>
-  <% end %>
-</div>
+
+
 <section class="book-wrapper">
   <div class="book-block-container">
     <% if @book.image_url %>
@@ -17,6 +10,17 @@
     <div class="text-block">
       <h1><%= @book.title %></h1>
       <h6><%= @book.author.first_name %> <%= @book.author.last_name %></h6>
+      <br>
+      <div class="favorites">
+        <% if current_user.present? %>
+          <% if current_user.favorited_book?(@book) %>
+            <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
+          <% else %>
+            <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+
       <br>
       <p><%= @book.description %></p>
       <%= link_to "Write a review", new_book_review_path(@book), class: 'button-primary' %>

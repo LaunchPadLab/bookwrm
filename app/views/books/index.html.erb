@@ -21,7 +21,7 @@
         <div class="text-block">
           <h5><%= link_to book.title, book_path(book) %></h5>
           <h6>Author Name</h6>
-          <p><%= image_tag("#{book.average_rating}-stars.svg") %> <%= book.average_rating %>/5</p>
+          <p><%= image_tag("#{book.average_rating}-stars.svg") %> <%= book.average_rating %>/5 (<%= book.num_ratings %> Reviews)</p>
           <% if current_user.present? %>
             <p><%= link_to 'Edit', edit_book_path(book) %></p>
             <p><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>

@@ -5,13 +5,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.alphabetical
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
-    @user_favorite = current_user ? current_user.favorites.for_book(@book) : nil
+    @user_favorite = current_user.present? ? current_user.favorites.for_book(@book) : nil
   end
 
   # GET /books/new

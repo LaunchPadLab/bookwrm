@@ -104,6 +104,10 @@ label{
         }
       }
 
+      p{
+        @include s-small;
+      }
+
       h5{
         margin-bottom: 5px;
       }
@@ -184,6 +188,7 @@ section{
     @include media($tablet){
       @include span-columns(7 of 12);
       @include shift(1);
+      margin-top: 0px;
     }
 
     img{
@@ -253,7 +258,41 @@ section{
   }
 }
 
-
 #notice{
   margin: 0px;
+}
+
+.table-block-container{
+  table{
+    width: 100%;
+  }
+}
+
+.favorites{
+  [data-method="post"]{
+    &:before{
+      background-image: image_url('heart-outlined.svg');
+      background-size: 100%;
+      content: "";
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+      opacity: 0.3;
+    }
+  }
+
+  [data-method="delete"]{
+    &:before{
+      background-image: image_url('heart.svg');
+      background-size: 100%;
+      content: "";
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
 }

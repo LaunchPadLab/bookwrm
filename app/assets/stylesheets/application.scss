@@ -10,37 +10,12 @@ $output-bourbon-deprecation-warnings: false;
 
 // Components
 @import "components/buttons";
-@import "components/datepicker";
-@import "components/empty-state";
 @import "components/flash";
-@import "components/footer";
 @import "components/forms";
-@import "components/four-oh-four";
 @import "components/grid";
-@import "components/modal";
 @import "components/navigation";
 @import "components/page-header";
-@import "components/side-navigation";
-@import "components/spinner";
 @import "components/table";
-@import "components/tooltip";
-@import "components/icons";
-@import "components/pagination";
-@import "components/wysiwyg-formatting";
-
-@import "components/steps-blocks";
-@import "components/icon-text-blocks";
-@import "components/testimonial-silhouette";
-@import "components/page-navigation";
-@import "components/accordion-blocks";
-@import "components/gradient-features";
-@import "components/grid-blocks";
-@import "components/disclaimer";
-
-
 
 // Page Styles
 @import "pages/main";
-@import "pages/blog";
-@import "pages/faq";
-@import "pages/search";
