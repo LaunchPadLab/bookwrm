@@ -6,18 +6,22 @@
       <%= image_tag  @book.image_url %>
     <% end %>
     <div class="text-block">
-      <h1><%= @book.title %></h1>
-      <h6><%= link_to @book.author.full_name, author_path(@book.author) %></h6>
-      <br>
       <div class="favorites">
         <% if current_user.present? %>
           <% if current_user.favorited_book?(@book) %>
-            <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
+            <%= link_to '', book_favorite_path(@book, @user_favorite), method: :delete %>
           <% else %>
-            <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
+            <%= link_to '', book_favorites_path(@book), method: :post %>
           <% end %>
         <% end %>
       </div>
+      <br>
+
+      <br>
+
+      <h1><%= @book.title %></h1>
+      <h6><%= link_to @book.author.full_name, author_path(@book.author) %></h6>
+      <br>
 
       <br>
       <p><%= @book.description %></p>
