@@ -4,21 +4,27 @@
     <title>Bookwrm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.png' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,700" rel="stylesheet">
   </head>
 
   <body>
-    <h1>BOOKWRM</h1>
-    <%= link_to 'View Authors', authors_path %>
-    <%= link_to 'Browse Books', books_path %>
-    <% if current_user.present? %>
-      <%= link_to 'My Account', edit_user_registration_path(current_user) %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path %>
-    <% end %>
+    <div class="navigation">
+      <%= image_tag('logo.svg', class: 'logo') %>
+      <nav>
+        <%= link_to 'Browse Books', books_path %>
+        <%= link_to 'Authors', authors_path %>
+        <% if current_user.present? %>
+          <%= link_to 'My Account', edit_user_registration_path(current_user) %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %>
+        <% end %>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>

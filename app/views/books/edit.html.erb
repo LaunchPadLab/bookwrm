@@ -1,6 +1,12 @@
-<h1>Editing Book</h1>
+<header class="page-header">
+  <div class="header-block-container">
+    <h1>Editing Book</h1>
+    <%= link_to 'View Book', @book, class: 'button-white-outline' %>
+  </div>
+</header>
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<div class="form-block-container">
+  <div class="card">
+    <%= render 'form', book: @book %>
+  </div>
+</div>

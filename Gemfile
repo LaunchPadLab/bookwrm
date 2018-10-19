@@ -16,6 +16,8 @@ gem 'rails', '~> 5.2.1'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'bourbon', '~> 4.0'
+gem 'neat', '~> 1.7.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

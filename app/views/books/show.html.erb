@@ -1,47 +1,61 @@
-<p id="notice"><%= notice %></p>
-
-<div class="favorites">
-  <% if current_user.present? %>
-    <% if current_user.favorited_book?(@book) %>
-      <%= link_to "Unfavorite Book", book_favorite_path(@book, @user_favorite), method: :delete %>
-    <% else %>
-      <button>
-        <%= link_to "Favorite Book", book_favorites_path(@book), method: :post %>
-      </button>
+<section class="book-wrapper">
+  <div class="book-block-container">
+    <% if @book.image_url %>
+      <%= image_tag  @book.image_url %>
     <% end %>
-  <% end %>
-</div>
+    <div class="text-block">
+      <div class="favorites">
+        <% if current_user.present? %>
+          <% if current_user.favorited_book?(@book) %>
+            <%= link_to '', book_favorite_path(@book, @user_favorite), method: :delete %>
+          <% else %>
+            <%= link_to '', book_favorites_path(@book), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <br>
 
-<% if current_user.present? %>
-  <%= link_to 'Edit', edit_book_path(@book) %>
-<% end %>
+      <br>
 
-<% if @book.image_url %>
-  <%= image_tag @book.image_url %>
-<% end %>
+      <h1><%= @book.title %></h1>
+      <h6><%= link_to @book.author.full_name, author_path(@book.author) %></h6>
+      <br>
 
-<h2><%= @book.title %></h2>
-<p><%= @book.author.first_name %> <%= @book.author.last_name %></p>
-<p><%= @book.description %></p>
-<button><%= link_to "Write a review", new_book_review_path(@book) %></button>
-
-<h1>Reviews (<%= @book.reviews.size %>)</h1>
-
-<% @book.reviews.each do |review| %>
-  <div class="user-initials">
-    <%= review.user.initials %>
+      <br>
+      <p><%= @book.description %></p>
+      <% if current_user.present? %>
+        <%= link_to "Write a review", new_book_review_path(@book), class: 'button-primary' %>
+        <%= link_to 'Edit', edit_book_path(@book) %>
+      <% end %>
+    </div>
   </div>
-  <div class="user-name">
-    <%= review.user.full_name %>
-  </div>
-  <div class="rating-stars">
-    <%= review.rating %>
-  </div>
-  <div class="timestamp">
-    <%= format_date(review.created_at) %>
-  </div>
-  <div class="description">
-    <%= review.description %>
-  </div>
-<% end %>
+</section>
 
+<section>
+  <div class="reviews-block-container">
+    <h3>Reviews (<%= @book.reviews.size %>)</h3>
+    <div class="reviews">
+      <% @book.reviews.each do |review| %>
+        <div class="review">
+          <div class="user-initials">
+            <%= review.user.initials %>
+          </div>
+          <div class="text-block">
+            <div class="user-name">
+              <strong><%= review.user.full_name %></strong>
+            </div>
+            <div class="rating-stars">
+              <%= image_tag("#{review.rating}-stars.svg") %>
+              <div class="timestamp">
+                <%= format_date(review.created_at) %>
+              </div>
+            </div>
+          </div>
+          <div class="description">
+            <%= review.description %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
