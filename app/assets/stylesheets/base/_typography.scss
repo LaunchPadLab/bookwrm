@@ -73,7 +73,7 @@ a {
   @include s-base;
   @include font-type($primary-sans-serif, normal, $heavy);
   @include transition(all 0.3s ease-in-out);
-  text-decoration: underline;
+  text-decoration: none;
 
   &:hover, &:focus  {
     color: $black-dark;

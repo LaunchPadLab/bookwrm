@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <section class="book-wrapper">
   <div class="book-block-container">
     <% if @book.image_url %>
@@ -9,7 +7,7 @@
     <% end %>
     <div class="text-block">
       <h1><%= @book.title %></h1>
-      <h6><%= @book.author.first_name %> <%= @book.author.last_name %></h6>
+      <h6><%= link_to @book.author.full_name, author_path(@book.author) %></h6>
       <br>
       <div class="favorites">
         <% if current_user.present? %>
@@ -23,8 +21,8 @@
 
       <br>
       <p><%= @book.description %></p>
-      <%= link_to "Write a review", new_book_review_path(@book), class: 'button-primary' %>
       <% if current_user.present? %>
+        <%= link_to "Write a review", new_book_review_path(@book), class: 'button-primary' %>
         <%= link_to 'Edit', edit_book_path(@book) %>
       <% end %>
     </div>
