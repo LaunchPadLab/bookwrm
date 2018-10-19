@@ -1,0 +1,271 @@
+.faq-block-wrapper{
+  background-color: $white-light;
+}
+
+/*-----------------------
+FAQ Index
+-----------------------*/
+
+.faq-blocks{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+
+  h6{
+    font-weight: bold;
+  }
+
+  li{
+    background: $white-base;
+    box-shadow: 0 2px 4px 0 rgba(207,207,207,0.50);
+    border-top: 5px solid $orange-base;
+    display: inline-block;
+    height: 230px;
+    position: relative;
+    width: 48%;
+    @include transition(all 0.3s ease-in-out);
+    margin: 1%;
+
+    @include media($tablet){
+      width: 23%;
+    }
+
+    &:hover{
+      @include transform(scale(1.05));
+    }
+
+    a{
+      display: inline-block;
+      @include vertical-horizontal-center;
+      text-decoration: none;
+      padding: 20px;
+      width: 100%;
+
+      img{
+        margin-bottom: 10px;
+        width: 50px;
+      }
+    }
+  }
+}
+/*-----------------------
+FAQ Show
+-----------------------*/
+.faq-subtopics{
+  max-width: 780px;
+  margin: 0 auto;
+
+  &:not(:last-child){
+    margin-bottom: 60px;
+  }
+}
+
+
+  .accordion.accordion-inner{
+    margin: 0px;
+  }
+
+  .accordion-outer{
+    background: $white-base;
+    box-shadow: 0 2px 4px 0 rgba(207,207,207,0.50);
+  }
+
+  .accordion{
+    display: inline-block;
+    width: 100%;
+
+    &.is-active{
+      .expand-trigger{
+        &:after{
+          content: "–";
+        }
+      }
+
+      .expanded-content{
+        display: block;
+
+        .superscript{
+          vertical-align: super;
+          font-size: 80%;
+          color: $black-base;
+        }
+
+        p .footnote{
+          @include s-small;
+          line-height: 18px;
+          display: block;
+          color: $black-base;
+        }
+
+      }
+
+      .accordion{
+
+        &:not(:last-child){
+          margin-bottom: 0px;
+        }
+
+        .expanded-content{
+          display: none;
+          background-color: $white-light;
+          padding: 10px;
+
+          .expand-trigger{
+            border-top: 1px solid $grey-light;
+          }
+        }
+
+        .expand-trigger{
+          &:after{
+            content: "+";
+          }
+        }
+
+        &.is-active{
+          .expand-trigger{
+            &:after{
+              content: "–";
+            }
+          }
+
+          .expanded-content{
+            display: block;
+          }
+        }
+
+        .accordion{
+
+          .expanded-content{
+            display: none;
+          }
+
+          .expand-trigger{
+            &:after{
+              content: "+";
+            }
+          }
+
+          &.is-active{
+            .expand-trigger{
+              &:after{
+                content: "–";
+              }
+            }
+
+            .expanded-content{
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
+
+    .expanded-content{
+      display: none;
+    }
+
+    .expand-trigger{
+      cursor: pointer;
+      position: relative;
+      margin: 25px 25px;
+      padding-right: 60px;
+
+      &:after{
+        content: "+";
+        display: inline-block;
+        background-color: $orange-base;
+        color: $white-base;
+        height: 42px;
+        width: 42px;
+        border-radius: 4px;
+        text-align: center;
+        float: right;
+        line-height: 2;
+        @include position(absolute, -10px 0px null null);
+        font-weight: bold;
+      }
+    }
+
+    .expand-trigger + .is-active{
+      &:after{
+        //content: "–";
+      }
+    }
+
+    .expanded-content{
+      margin: 25px;
+      width: calc(100% - 50px);
+
+      p{
+        line-height: 1.7;
+        &:not(:last-child){
+          //margin-bottom: 5px;
+        }
+      }
+
+      ul{
+        .expand-trigger{
+          padding: 14px 0px;
+        }
+      }
+
+      .expanded-content{
+        margin: 0px;
+        width: 100%;
+
+        .expanded-content{
+          padding: 0px;
+        }
+      }
+    }
+
+    ul{
+      .expand-trigger{
+        border-top: 1px solid $white-med;
+        display: inline-block;
+        width: 100%;
+        margin: 0px;
+        font-size: 16px;
+
+        &:after{
+          background-color: transparent;
+          color: $orange-base;
+          height: auto;
+          width: auto;
+          font-size: 20px;
+          @include position(absolute, 5px 15px null null);
+        }
+      }
+    }
+
+    ul ul{
+      .expand-trigger{
+        &:after{
+          color: $grey-base;
+        }
+      }
+    }
+
+    ul ul{
+      background-color: $white-light;
+
+      li{
+        .expand-trigger{
+          padding: 10px 25px !important;
+          font-size: 14px;
+
+          &:after{
+            top: 0px !important;
+          }
+        }
+
+        .expanded-content{
+          padding: 0px 25px 10px !important;
+        }
+      }
+    }
+  }

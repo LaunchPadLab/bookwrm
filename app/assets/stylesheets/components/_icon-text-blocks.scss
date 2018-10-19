@@ -1,0 +1,32 @@
+/*-----------------------
+Icon Text Blocks
+-----------------------*/
+.icon-text-blocks{
+  display: inline-block;
+  width: 100%;
+
+  li{
+    margin-top: 50px;
+
+    @include media($tablet){
+      @include span-columns(6 of 12);
+      @include omega(2n);
+    }
+
+    img{
+      display: inline-block;
+      margin-right: 20px;
+      width: 50px;
+      vertical-align: top;
+    }
+
+    .text-block{
+      display: inline-block;
+      width: calc(100% - 70px);
+
+      h5{
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

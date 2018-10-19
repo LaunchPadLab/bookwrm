@@ -1,0 +1,121 @@
+.wysiwyg-formatting{
+  p{
+    @include rem(margin-bottom, 15px);
+    font-size: 16px;
+  }
+
+  img{
+    height: inherit;
+  }
+
+  ul{
+    @include rem(margin-bottom, 15px);
+
+    li{
+      @include font-type($primary-sans-serif, normal, normal);
+      @include rem(margin-left, 15px);
+      list-style-type: disc;
+
+      &:not(:last-child){
+        @include rem(margin-bottom, 10px);
+      }
+
+      p{
+        margin: 0px;
+      }
+    }
+  }
+
+  ol{
+    @include rem(margin-bottom, 15px);
+
+    li{
+      @include font-type($primary-sans-serif, normal, normal);
+      @include rem(margin-left, 15px);
+      list-style-type: decimal;
+
+      &:not(:last-child){
+        @include rem(margin-bottom, 10px);
+      }
+
+      p{
+        margin: 0px;
+      }
+    }
+  }
+
+  a{
+    font-weight: bold;
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    a{
+      font-weight: bold;
+    }
+  }
+
+  strong{
+    font-weight: bold;
+  }
+
+  p strong a{
+    font-weight: bold;
+  }
+
+  h1 { font-size: $font-size-base * 1.75; @include media($tablet){ font-size: $font-size-base * 2.50; } }
+  h2 { font-size: $font-size-base * 1.25; @include media($tablet){ font-size: $font-size-base * 2.00; } }
+  h3 { font-size: $font-size-base * 1.00; @include media($tablet){ font-size: $font-size-base * 1.5; } }
+
+  blockquote{
+    border-left: 4px solid $orange-base;
+    @include rem(padding-left, 10px);
+    @include rem(margin-bottom, 15px);
+    @include s-big;
+
+    @include media($tablet){
+      @include rem(padding-left, 30px);
+      margin: 0px -60px 15px;
+      width: calc(100% + 120px);
+    }
+
+    p{
+      @include s-big;
+    }
+
+    &:before{
+      display: none;
+    }
+  }
+
+  img{
+    @include rem(margin-bottom, 15px);
+
+    @include media($tablet){
+      margin: 0px -60px 15px;
+      width: calc(100% + 120px);
+    }
+  }
+
+  figcaption{
+    border-bottom: 1px solid $white-med;
+    @include rem(margin-bottom, 15px);
+
+    p{
+      margin: 0px 15px 15px;
+      text-align: center;
+    }
+
+    @include media($tablet){
+      margin: 0px -60px 15px;
+      width: calc(100% + 120px);
+    }
+  }
+
+  cite{
+    display: inline-block;
+    @include s-tiny;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+}

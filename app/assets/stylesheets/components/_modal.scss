@@ -1,0 +1,146 @@
+.modal {
+  .modal-fade-screen {
+    @include position(fixed, 0 0 0 0);
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 1;
+    transition: opacity 0.25s ease;
+    // visibility: hidden;
+    z-index: 9999999;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  h2{
+    @include rem(margin-bottom, 10px);
+  }
+
+  ol{
+    li{
+      list-style: decimal;
+      @include s-base;
+      margin: 0px 0px 10px 20px;
+    }
+  }
+
+  .modal-close {
+    font-family: Helvetica;
+    color: $blue-base;
+    cursor: pointer;
+    @include position(absolute, 0px 0px null null);
+    @include s-huge;
+    @include rem(padding, 12px 20px);
+
+    @include media($tablet){
+      @include position(absolute, 15px 20px null null);
+      @include rem(padding, 20px);
+    }
+  }
+
+  .modal-inner {
+    @include outer-container;
+    background-color: $white-base;
+    box-shadow: none;
+    margin: auto;
+    max-height: 45vh;
+    overflow: scroll;
+    position: relative;
+    transition: opacity 0.25s ease;
+    width: 100%;
+    @include rem(padding, 20px);
+
+    @include media($tablet){
+      @include rem(padding, 40px);
+      @include center;
+      max-width: 700px;
+      @include vertical-center;
+      left: 50%;
+      max-height: 650px;
+      @include transform(translateY(-50%) translateX(-50%));
+    }
+  }
+
+  &.large-modal{
+    .modal-inner {
+      max-height: 90vh;
+
+      @include media($tablet){
+        max-height: 90vh;
+        max-width: 90vw;
+      }
+
+      h2{
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.search-modal{
+  display: none;
+
+  &.is-active{
+    display: block;
+  }
+
+  .modal-close{
+    color: $white-base;
+  }
+
+  .modal-inner{
+    padding: 0px;
+    max-width: 70%;
+
+    .search-bar{
+
+      fieldset{
+        margin: 0px;
+      }
+
+      &:after{
+        width: 60px;
+        height: 60px;
+        top: 25px;
+      }
+
+      input[type="search"]{
+        border-color: $white-base;
+        @include s-huge;
+        padding: 25px 25px 25px 80px;
+      }
+    }
+
+    ul{
+      background-color: $white-light;
+      padding: 15px 25px;
+
+      li{
+        display: inline-block;
+        margin-right: 20px;
+
+        &:not(:first-child){
+          &:after{
+            content: "/";
+            display: inline-block;
+            margin-left: 20px;
+          }
+        }
+
+        &:first-child, &:last-child{
+          &:after{
+            display: none;
+          }
+        }
+
+        a{
+          text-decoration: none;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

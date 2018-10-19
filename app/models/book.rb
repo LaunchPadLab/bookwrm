@@ -6,15 +6,19 @@ class Book < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :author_id }
 
   def average_rating
-    ratings_total / num_ratings
-  end
+      return 0 if num_ratings.zero?
+      (ratings_total / num_ratings).round(0)
+    end
 
   def ratings_total
-    ratings = reviews.pluck(:rating)
     ratings.sum.to_f
   end
 
   def num_ratings
     ratings.size
+  end
+
+  def ratings
+    reviews.pluck(:rating)
   end
 end

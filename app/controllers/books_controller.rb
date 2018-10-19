@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @user_favorite = current_user.favorites.for_book(@book)
+    @user_favorite = current_user ? current_user.favorites.for_book(@book) : nil
   end
 
   # GET /books/new

@@ -1,0 +1,45 @@
+/*-----------------------
+Accordion Blocks
+-----------------------*/
+.accordion-wrapper{
+  background-color: $white-med;
+}
+
+.accordion-blocks{
+  display: inline-block;
+  width: 100%;
+  margin-top: 50px;
+
+  &.two-columns{
+    li{
+      @include media($tablet-landscape){
+        @include span-columns(6 of 12);
+        @include omega(2n);
+      }
+
+      h4{
+        font-size: 16px;
+
+        &:after{
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+.quick-links{
+  text-align: center;
+  border-top: 1px solid darken($white-med, 15%);
+  padding-top: 40px;
+  margin-top: 50px;
+
+  li{
+    display: inline-block;
+    margin: 10px 10px;
+  }
+
+  a{
+    border-radius: 20em;
+  }
+}

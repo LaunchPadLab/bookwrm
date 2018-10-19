@@ -1,0 +1,255 @@
+/*-----------------------
+Testimonial Silhouettes
+-----------------------*/
+.testimonial-silhouette-wrapper{
+  background-color: $white-med;
+}
+
+
+.testimonial-silhouette-block-container{
+  position: relative;
+  padding-bottom: 0px;
+
+  @include media($tablet-landscape){
+    padding-bottom: 0px !important;
+  }
+
+  .slick-slider{
+    margin-top: 50px;
+  }
+
+  blockquote{
+    display: none;
+    background-color: $orange-base;
+    color: $white-base;
+    padding: 50px 50px 50px;
+    position: absolute;
+    height: 315px;
+    top: 0px;
+    width: 100%;
+    font-size: 18px;
+    overflow: auto;
+
+    &:before{
+      content: "\201C";
+      font-size: 200px;
+      display: inline-block;
+      font-family: Georgia;
+      margin-right: 20px;
+      vertical-align: top;
+      margin-top: -30px;
+    }
+
+    .text-block{
+      display: inline-block;
+      max-width: 800px;
+    }
+
+    p{
+      color: $white-base;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+
+  .slick-current {
+    blockquote{
+      display: block;
+    }
+
+    .image-block{
+      position: relative;
+
+      &:before{
+        content:"";
+        @include triangle(50px, $orange-base, down);
+        text-align: center;
+        position: absolute;
+        @include horizontal-center;
+        top: -35px;
+      }
+    }
+
+  }
+
+  img{
+    margin-top: 350px;
+  }
+}
+
+/*-----------------------
+Testimonial Block
+-----------------------*/
+.testimonial-block-wrapper{
+  //margin-top: 30px;
+  background-color: #EDEFF1;
+
+  .text-block-container{
+    max-width: 100%;
+  }
+
+  .slider-block-container{
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    @include media($tablet){
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    @include media($tablet-landscape){
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+
+  .slick-arrow{
+    display: none !important;
+  }
+
+  .slick-dots{
+    margin-top: 30px;
+    position: relative;
+    bottom: 0px !important;
+  }
+
+  .slick-dots li button{
+    color: $black-base ;
+    opacity: 0.5;
+    font-size: 13px;
+    text-indent: -9999px;
+    overflow: hidden;
+
+    &:focus{
+      &:before{
+        border: 1px solid $grey-dark;
+      }
+    }
+  }
+
+  .slick-dots li button:before{
+    background-color: $black-base !important;
+    opacity: 0.5;
+    font-size: 13px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 20em;
+  }
+
+  .slick-dots li.slick-active button:before{
+    color: grey !important;
+    opacity: 1;
+  }
+
+  .slick-slider{
+    margin-top: 20px;
+  }
+}
+
+.testimonial-block-slider{
+  background: $white-base;
+  box-shadow: 0 2px 4px 0 rgba(207,207,207,0.50);
+  opacity: 0.5;
+  @include transform(scale(0.8));
+  transition: all 300ms ease;
+  margin-bottom: 5px;
+
+  &:focus{
+    outline: none;
+  }
+
+  blockquote{
+    background-color: #A4AEB7;
+    color: $white-base;
+    padding: 30px 20px 20px;
+    position: relative;
+    height: 260px;
+    top: 0px;
+    width: 100%;
+    font-size: 18px;
+    overflow: auto;
+
+
+    .blockquote-inner{
+      @include vertical-center;
+    &:before{
+      content: "\201C";
+      font-size: 150px;
+      display: inline-block;
+      font-family: Georgia;
+      margin-right: 10px;
+      vertical-align: top;
+      margin-top: -30px;
+    }
+    }
+
+    .text-block{
+      width: calc(100% - 90px);
+      display: inline-block;
+
+      p{
+        color: $white-base;
+        width: 100%;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  cite{
+    background-color: $white-base;
+    display: inline-block;
+    padding: 20px;
+    width: 100%;
+
+    .headshot-block{
+      margin-right: 15px;
+    }
+
+    .headshot-block, p, .location-block{
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    p{
+      width: calc(100% - 145px);
+      margin: 0px;
+      margin-right: 15px;
+    }
+
+    .location-block{
+      width: 50px;
+    }
+  }
+
+  .headshot-block{
+    display: inline-block;
+    height: 65px;
+    width: 65px;
+
+    img{
+      border-radius: 20em;
+    }
+  }
+
+}
+
+.slick-current {
+
+  .testimonial-block-slider{
+    opacity: 1;
+    @include transform(scale(1));
+
+    @include media($tablet-landscape){
+      margin: 0px -10%;
+    }
+
+    blockquote{
+      display: block;
+      background-color: $orange-base;
+
+    }
+  }
+}
